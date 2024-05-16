@@ -73,10 +73,13 @@ const LoginForm = ({ setUserLogin }) => {
   }
   const initGoogleSignIn = async () => {
     try {
+    //   const auth2 = await window.gapi.auth2?.getAuthInstance();
+    // const googleUser = await auth2?.signIn();
+    // const token = googleUser?.getAuthResponse().id_token;
       await window.gapi.auth2?.init({
-        client_id: '242537127655-sgivplruev8nfu7gru7m01qslimqdj61.apps.googleusercontent.com',
+        client_id: clientId,
         scope: "email",
-        plugin_name: 'FarmBid-Connect'
+        plugin_name: 'FarmBidConnect'
       })
       const auth2 = window.gapi.auth2?.getAuthInstance();
       const googleUser = await auth2?.signIn()
